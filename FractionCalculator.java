@@ -10,7 +10,6 @@ public class FractionCalculator {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -24,14 +23,24 @@ public class FractionCalculator {
 	 * @return
 	 */
 	public Fraction evaluate(Fraction frac, String input) {
-		Fraction result = new Fraction(0, 1);
-		char ch = input.charAt(0);
-		char ch2 = input.charAt(2);
-		int numerator = Character.getNumericValue(ch);
-		int denominator = Character.getNumericValue(ch2);
-		result = frac.add(new Fraction(numerator, denominator));
+		Fraction stored = new Fraction(0, 1);
+		String[] elem = input.split(" ");
+		String newFrac = elem[0];
+		String[] fstring = newFrac.split("/");
+		int numerator = Integer.parseInt(fstring[0]);
+		int demoninator = Integer.parseInt(fstring[1]);
+		stored = new Fraction(numerator, demoninator).add(stored);
+		for (int i = 1; i < fstring.length; i++) {
+			if (elem[i].equals("+")) {
+				String nfrac = elem[i + 1];
+				String[] temp = nfrac.split("/");
+				numerator = Integer.parseInt(temp[0]);
+				demoninator = Integer.parseInt(temp[1]);
+				stored = new Fraction(numerator, demoninator).add(stored);
+			}
 
-		return result;
+		}
+		return stored;
 
 	}
 
