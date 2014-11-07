@@ -23,8 +23,8 @@ public class FractionCalculatorTest {
 
 	@Test
 	public void testEvaluate2() {
-		String input = "1/4 + 1/4 + 1/4";
-		Fraction expectedOutput = new Fraction(3, 4);
+		String input = "1/5 + 1/5 + 1/5 + 1/5";
+		Fraction expectedOutput = new Fraction(4, 5);
 
 		FractionCalculator addObj = new FractionCalculator();
 		Fraction frac = new Fraction(0, 1);
