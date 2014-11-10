@@ -3,12 +3,22 @@ package stworo01;
 import java.util.Scanner;
 
 /**
- * @author stefan Tworogal
+ * a Class that carries out mathematical operations on fractions, using Fraction
+ * class 
+ * Current state:
+ * Main method not complete, negate not implemented,
+ * Absolute value method not implemented,
+ * 
+ * @author Stefan Tworogal
+ * @version 10/11/14
  *
  */
 public class FractionCalculator {
 
+	static boolean run = true;
+
 	/**
+	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
@@ -16,16 +26,20 @@ public class FractionCalculator {
 		// Open FractionCalculator
 		FractionCalculator calc = new FractionCalculator();
 		// display welcome and instructions
-		String welcome = "Hello and wellcome to the Fraction calculator";
+		String welcome = "Hello and welcome to the Fraction calculator\n"
+				+ "my name is Stefan Tworogal";
 		String inputDataString = "Enter expression: ";
 		System.out.println();
 		System.out.println(welcome);
 		Fraction initialValue = new Fraction(0, 1);
-		System.out.println(inputDataString);
-		String in = sc.nextLine();
-		Fraction result = calc.evaluate(initialValue, in);
-		String out = result.toString();
-		System.out.println("The answer is: " + out);
+		while (run) {
+			System.out.println(inputDataString);
+			String in = sc.nextLine();
+			Fraction result = calc.evaluate(initialValue, in);
+			String out = result.toString();
+			System.out.println("The answer is: " + out);
+
+		}
 		sc.close();
 	}
 
@@ -94,6 +108,9 @@ public class FractionCalculator {
 				stored = stored.sub(fracTwo);
 				i = i + 2;
 
+			}
+			if (inputArray[i].equals("q")) {
+				run = false;
 			}
 		}
 
